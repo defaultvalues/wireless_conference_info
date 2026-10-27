@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+import {deadlineState,filterConferences,makeICS,beijingDay} from '../dist/core.js';
+const ctx={window:{}};vm.runInNewContext(readFileSync(new URL('../dist/data.js',import.meta.url),'utf8'),ctx);const data=Array.from(ctx.window.CONFERENCES);
+const now=new Date('2026-10-27T03:00:00Z');
+const state={section:'upcoming',search:'',topic:'全部方向',type:'all',range:'all',sort:'deadline'};
+test('AoE expiry uses exact UTC instant, not date in China',()=>{const c=data.find(c=>c.id==='isit-2027');assert.equal(deadlineState(c,new Date('2027-01-11T11:58:59Z')).status,'upcoming');assert.equal(deadlineState(c,new Date('2027-01-11T11:59:00Z')).status,'past');});
+test('Date-only deadlines use Beijing day and never invent a precise cutoff',()=>{const c=data[0];assert.equal(beijingDay(new Date('2026-11-06T16:00:00Z')),'2026-11-07');assert.equal(deadlineState(c,now).days,10);assert.equal(deadlineState(c,new Date('2026-11-06T15:59:00Z')).status,'upcoming');assert.equal(deadlineState(c,new Date('2026-11-06T16:00:00Z')).status,'past');assert.equal(deadlineState(c,now).exact,false);});
+test('Filters compose and uncertain dates never enter upcoming counts',()=>{assert.equal(filterConferences(data,state,new Set(),now).length,8);assert.equal(filterConferences(data,{...state,range:'30'},new Set(),now).length,2);assert.equal(filterConferences(data,{...state,search:'sorrento'},new Set(),now).length,0);assert.equal(filterConferences(data,{...state,search:'索伦托',topic:'信息论'},new Set(),now)[0].id,'isit-2027');assert.equal(filterConferences(data,{...state,type:'workshop'},new Set(),now).length,1);assert.equal(filterConferences(data,{...state,section:'pending'},new Set(),now)[0].id,'icc-2027');assert.equal(filterConferences(data,{...state,section:'saved'},new Set(['isit-2027']),now).length,1);});
+test('ICS has exact AoE conversion, all-day unknown zones, excludes pending and folds UTF-8 lines',()=>{const ics=makeICS(data,now);assert.equal((ics.match(/BEGIN:VEVENT/g)||[]).length,8);assert.match(ics,/DTSTART:20270111T115900Z/);assert.match(ics,/DTSTART;VALUE=DATE:20261106/);assert.match(ics,/DTEND;VALUE=DATE:20261107/);assert.ok(!ics.includes('UID:icc-2027'));for(const line of ics.split('\r\n'))assert.ok(Buffer.byteLength(line)<=75);});
+test('Data has unique IDs, valid date ranges and official HTTPS provenance',()=>{assert.equal(new Set(data.map(c=>c.id)).size,data.length);for(const c of data){assert.ok(c.start<=c.end);assert.ok(c.source.startsWith('https://'));if(c.verified){assert.ok(c.deadline<c.start);assert.ok(c.deadline);}if(c.deadlineAt)assert.ok(Number.isFinite(Date.parse(c.deadlineAt)));}});

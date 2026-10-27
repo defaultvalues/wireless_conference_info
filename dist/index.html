@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#21664e"><meta name="description" content="通信研究者的会议截稿日历。查看会议简介、投稿截止日期、会议时间与地点，按方向筛选并导出日历。"><title>截稿雷达 · 通信会议日历</title><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"></head>
+<body>
+<a class="skip" href="#main">跳转到会议列表</a>
+<aside class="sidebar">
+  <a class="brand" href="./"><span class="brand-icon">◉</span><span>截稿雷达<small>COMM DEADLINES</small></span></a>
+  <div class="nav-label">我的研究工作台</div>
+  <nav aria-label="主要导航"><button class="nav-item active" data-section="upcoming"><span>▦</span> 即将截稿 <b id="nav-count">0</b></button><button class="nav-item" data-section="saved"><span>☆</span> 我的收藏 <b id="saved-count">0</b></button><button class="nav-item" data-section="pending"><span>◷</span> 待核实</button><button class="nav-item" data-section="past"><span>↶</span> 已截止</button></nav>
+  <div class="sidebar-note"><div class="signal-icon">⌁</div><strong>让好研究，准时相遇。</strong><p>聚焦通信与网络领域<br>把更多时间留给研究。</p></div>
+  <button class="about-button" id="about">ⓘ 数据来源与说明</button><div class="sidebar-bottom"><span class="live-dot"></span> 为通信研究者而做 <small>v1.1</small></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div>研究工作台 <span>/</span> <strong id="breadcrumb">即将截稿</strong></div><div class="today"><span class="live-dot"></span><time id="today"></time><span class="zone">北京时间</span></div></header>
+  <main id="main">
+    <section class="intro"><div><div class="eyebrow">A LITTLE PLANNING. A BIG NEXT STEP.</div><h1>下一篇，投向哪里<span>？</span></h1><p>发现通信领域的下一站，让每一个重要截稿日尽在掌握。</p></div><div class="intro-actions"><button class="button" id="refresh">↻ 读取最新数据</button><button class="button primary" id="export"><span>↓</span> 导出当前日历</button></div></section>
+    <section id="sync-banner" class="sync-banner" role="status" aria-live="polite"><span class="sync-dot"></span><div><strong id="sync-title">准备读取最新发布数据</strong><p id="sync-description">GitHub Actions 每小时检查官网；打开网页读取最近一次发布结果。</p></div><button id="sync-details">查看检查明细 ↗</button></section>
+    <section class="stats" aria-label="会议概览"><div class="stat"><span>已收录 · 待截稿</span><strong id="stat-open">—</strong><small>主会与专题 Workshop</small></div><div class="stat"><span>未来 30 天内</span><strong id="stat-soon">—</strong><small><i class="dot orange"></i>值得提前安排</small></div><div class="stat"><span>最近截稿</span><strong id="stat-next">—</strong><small id="stat-next-name">—</small></div><div class="stat source-stat"><span>最近一轮检查成功</span><strong id="stat-sync">—</strong><small id="stat-sync-time">等待云端更新记录</small></div></section>
+    <section class="radar-strip" aria-label="近期截稿分布"><div class="radar-title"><span class="pulse">◉</span><div><strong>截稿时间线</strong><small>未来 90 天</small></div></div><div id="timeline" class="timeline"></div></section>
+    <section class="directory" aria-label="会议筛选与结果">
+      <div class="directory-heading"><div><h2 id="section-title">即将截稿</h2><span id="result-count" role="status" aria-live="polite"></span></div><div class="view-switch" aria-label="显示方式"><button id="list-view" class="selected" aria-pressed="true">☷ 列表</button><button id="calendar-view" aria-pressed="false">▦ 日历</button></div></div>
+      <div class="filters"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="搜索会议、关键词或城市…" aria-label="搜索会议、关键词或城市"><kbd>/</kbd></label><label class="select-label"><span class="sr-only">截止时间范围</span><select id="range"><option value="all">全部时间</option><option value="30">未来 30 天</option><option value="90">未来 90 天</option><option value="180">未来 180 天</option></select></label><label class="select-label"><span class="sr-only">会议类型</span><select id="type"><option value="all">全部类型</option><option value="main">主会论文</option><option value="workshop">Workshop</option></select></label><label class="select-label"><span class="sr-only">排序方式</span><select id="sort"><option value="deadline">截稿日期 ↑</option><option value="event">开会时间 ↑</option><option value="name">会议名称 A–Z</option></select></label></div>
+      <div class="topics" id="topics" aria-label="研究方向"></div>
+      <div class="list-labels"><span>会议名称与简介</span><span>论文截止日期</span><span>会议时间与地点</span><span></span></div>
+      <div id="results"></div>
+      <div id="calendar" hidden><div class="calendar-head"><button id="prev-month" aria-label="上个月">←</button><h3 id="calendar-title"></h3><button id="next-month" aria-label="下个月">→</button><button id="current-month">本月</button></div><div class="weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div><div class="calendar-grid" id="calendar-grid"></div></div>
+      <div id="empty" class="empty" hidden><div>⌕</div><h3>这里还没有匹配的会议</h3><p>试试其他关键词、研究方向或时间范围。</p><button class="button" id="reset">重置筛选</button></div>
+    </section>
+    <footer><p><span class="live-dot"></span> 以会议官网最新 CFP 为准。未注明时区的日期按北京时间估算天数。</p><a href="https://github.com/defaultvalues/wireless_conference_info" target="_blank" rel="noopener noreferrer">GitHub 项目 ↗</a></footer>
+  </main>
+</div>
+<dialog id="details"><button class="dialog-close" aria-label="关闭">×</button><div id="dialog-content"></div></dialog><div id="toast" role="status" aria-live="polite"></div>
+<script src="./data.js"></script><script type="module" src="./app.js"></script>
+</body></html>

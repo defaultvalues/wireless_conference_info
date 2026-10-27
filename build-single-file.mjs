@@ -1,0 +1,17 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import vm from 'node:vm';
+const context={window:{}};
+vm.runInNewContext(readFileSync(new URL('dist/data.js',import.meta.url),'utf8'),context);
+writeFileSync(new URL('dist/conferences.json',import.meta.url),JSON.stringify(context.window.CONFERENCES,null,2));
+const read = name => readFileSync(new URL(`dist/${name}`, import.meta.url),'utf8');
+let html=read('index.html');
+html=html.replace('<link rel="icon" href="./favicon.svg" type="image/svg+xml">','<link rel="icon" href="data:image/svg+xml,'+encodeURIComponent(read('favicon.svg'))+'" type="image/svg+xml">');
+html=html.replace('<link rel="stylesheet" href="./style.css">',`<style>${read('style.css')}</style>`);
+const core=read('core.js').replace(/^export /gm,'');
+const app=read('app.js').replace(/^import .*;\n/,'');
+const snapshot=JSON.parse(readFileSync(new URL('data/latest.json',import.meta.url),'utf8'));
+const embedded='window.PUBLISHED_SNAPSHOT='+JSON.stringify(snapshot).replaceAll('<','\\u003c')+';window.CONFERENCES=window.PUBLISHED_SNAPSHOT.conferences;window.DATA_UPDATED='+JSON.stringify(snapshot.seedDate)+';';
+const script=embedded+'\n(()=>{\n'+core+'\n'+app+'\n})();';
+html=html.replace('<script src="./data.js"></script><script type="module" src="./app.js"></script>',`<script>${script.replace(/<\/script/gi,'<\\/script')}</script>`);
+writeFileSync(new URL('preview.html',import.meta.url),html);
+console.log('Created preview.html — self-contained, no server required.');
