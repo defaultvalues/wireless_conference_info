@@ -1,13 +1,4 @@
 {
-  "schemaVersion": 1,
-  "mode": "github-actions",
-  "scheduleHours": 1,
-  "seedDate": "2026-10-27",
-  "generatedAt": null,
-  "attemptedAt": null,
-  "freshCount": 0,
-  "totalCount": 9,
-  "status": "seed",
   "conferences": [
     {
       "id": "ccwc-2027",
@@ -31,8 +22,8 @@
       "url": "https://ieee-ccwc.org/",
       "source": "https://ieee-ccwc.org/",
       "note": "官网公布全文截止日期，未在所核查页面注明具体时刻与时区。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
+      "syncStatus": "stale"
     },
     {
       "id": "twinnetapp-2027",
@@ -57,8 +48,9 @@
       "source": "https://wcnc-twinnetapp.bcrg.uk/",
       "extraSource": "https://www.comsoc.org/conferences-events/ieee-wireless-communications-and-networking-conference-2027",
       "note": "此日期为 TwinNetApp Workshop 论文截止，不是 WCNC 主会截止。会期显示 WCNC 主会范围，具体 Workshop 日程待确认。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "本次已读取官方来源并解析论文截止日期。",
+      "lastChecked": "2026-10-27T03:39:37.433000+00:00",
+      "syncStatus": "fresh"
     },
     {
       "id": "secon-2027",
@@ -83,8 +75,8 @@
       "url": "https://secon2027.ieee-secon.org/",
       "source": "https://www.comsoc.org/conferences-events/ieee-international-conference-sensing-communication-and-networking-2027",
       "note": "日期依据 IEEE ComSoc 官方会议目录。所核查目录未注明截止时刻与时区。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
+      "syncStatus": "stale"
     },
     {
       "id": "hpsr-2027",
@@ -107,8 +99,8 @@
       "url": "https://www.comsoc.org/conferences-events/ieee-international-conference-high-performance-switching-and-routing-2027",
       "source": "https://www.comsoc.org/conferences-events/ieee-international-conference-high-performance-switching-and-routing-2027",
       "note": "日期依据 IEEE ComSoc 官方会议目录，具体时刻与时区未注明。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
+      "syncStatus": "stale"
     },
     {
       "id": "wowmom-2027",
@@ -133,8 +125,8 @@
       "url": "https://wowmom2027.dii.unipi.it/",
       "source": "https://wowmom2027.dii.unipi.it/",
       "note": "官网注明所有截止时间均为 23:59 AoE，即 UTC−12。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
+      "syncStatus": "stale"
     },
     {
       "id": "dyspan-2027",
@@ -158,8 +150,8 @@
       "url": "https://www.comsoc.org/conferences-events/ieee-international-symposium-dynamic-spectrum-access-networks-2027",
       "source": "https://www.comsoc.org/conferences-events/ieee-international-symposium-dynamic-spectrum-access-networks-2027",
       "note": "日期依据 IEEE ComSoc 官方会议目录，具体时刻与时区未注明。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
+      "syncStatus": "stale"
     },
     {
       "id": "isit-2027",
@@ -173,7 +165,7 @@
       "type": "main",
       "deadline": "2027-01-10",
       "deadlineAt": "2027-01-10T23:59:00-12:00",
-      "timezone": "23:59 AoE (UTC−12)",
+      "timezone": "23:59 AoE",
       "start": "2027-06-27",
       "end": "2027-07-02",
       "location": "意大利 · 索伦托",
@@ -183,8 +175,9 @@
       "url": "https://2027.ieee-isit.org/",
       "source": "https://2027.ieee-isit.org/",
       "note": "此处为常规论文截止日期。Recent Results 摘要、Workshop 提案和最终稿采用不同时间节点。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "本次已读取官方来源并解析论文截止日期。",
+      "lastChecked": "2026-10-27T03:39:37.433000+00:00",
+      "syncStatus": "fresh"
     },
     {
       "id": "space-2027",
@@ -209,8 +202,9 @@
       "source": "https://ieeespace.org/important-dates/",
       "extraSource": "https://ieeespace.org/call-for-papers/",
       "note": "跨领域会议，通信为征稿方向之一。7 月 5 日为会前 Workshop，7 月 6–7 日为主会。具体截止时刻与时区未注明。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "本次已读取官方来源并解析论文截止日期。",
+      "lastChecked": "2026-10-27T03:39:37.433000+00:00",
+      "syncStatus": "fresh"
     },
     {
       "id": "icc-2027",
@@ -235,8 +229,17 @@
       "url": "https://icc2027.ieee-icc.org/",
       "source": "https://www.comsoc.org/conferences-events/ieee-international-conference-communications-2027",
       "note": "IEEE ComSoc 目录仍列 2026-10-02；外部索引报告延期到 2026-10-30，但本次未能直接读取会议官网确认。暂不纳入已确认的待截稿统计，请核对官网最新 CFP。",
-      "syncStatus": "stale",
-      "syncNote": "初始人工核查数据，等待 GitHub Actions 首次读取官方来源。"
+      "syncNote": "本次无法连接官方来源；保留旧数据。",
+      "syncStatus": "stale"
     }
-  ]
+  ],
+  "attemptedAt": "2026-10-27T03:39:37.433000+00:00",
+  "freshCount": 3,
+  "totalCount": 9,
+  "status": "partial",
+  "seedDate": "2026-10-27",
+  "schemaVersion": 1,
+  "mode": "github-actions",
+  "generatedAt": "2026-10-27T03:39:40.125900+00:00",
+  "scheduleHours": 1
 }
