@@ -35,7 +35,7 @@
         "AI + 通信"
       ],
       "type": "workshop",
-      "deadline": "2026-11-06",
+      "deadline": "2026-11-30",
       "deadlineAt": null,
       "timezone": null,
       "start": "2027-04-05",
@@ -49,7 +49,7 @@
       "extraSource": "https://www.comsoc.org/conferences-events/ieee-wireless-communications-and-networking-conference-2027",
       "note": "此日期为 TwinNetApp Workshop 论文截止，不是 WCNC 主会截止。会期显示 WCNC 主会范围，具体 Workshop 日程待确认。",
       "syncNote": "本次已读取官方来源并解析论文截止日期。",
-      "lastChecked": "2026-11-12T03:00:07.051210+00:00",
+      "lastChecked": "2026-11-12T11:12:49.172236+00:00",
       "syncStatus": "fresh"
     },
     {
@@ -203,7 +203,7 @@
       "extraSource": "https://ieeespace.org/call-for-papers/",
       "note": "跨领域会议，通信为征稿方向之一。7 月 5 日为会前 Workshop，7 月 6–7 日为主会。具体截止时刻与时区未注明。",
       "syncNote": "本次已读取官方来源并解析论文截止日期。",
-      "lastChecked": "2026-11-12T03:00:07.051210+00:00",
+      "lastChecked": "2026-11-12T11:12:49.172236+00:00",
       "syncStatus": "fresh"
     },
     {
@@ -233,13 +233,13 @@
       "syncStatus": "stale"
     }
   ],
-  "attemptedAt": "2026-11-12T03:00:07.051210+00:00",
+  "attemptedAt": "2026-11-12T11:12:49.172236+00:00",
   "freshCount": 2,
   "totalCount": 9,
   "status": "partial",
   "seedDate": "2026-10-27",
   "schemaVersion": 1,
   "mode": "github-actions",
-  "generatedAt": "2026-11-12T03:00:09.399874+00:00",
+  "generatedAt": "2026-11-12T11:12:51.669099+00:00",
   "scheduleHours": 1
 }
