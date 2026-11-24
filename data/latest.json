@@ -49,7 +49,7 @@
       "extraSource": "https://www.comsoc.org/conferences-events/ieee-wireless-communications-and-networking-conference-2027",
       "note": "此日期为 TwinNetApp Workshop 论文截止，不是 WCNC 主会截止。会期显示 WCNC 主会范围，具体 Workshop 日程待确认。",
       "syncNote": "本次已读取官方来源并解析论文截止日期。",
-      "lastChecked": "2026-11-23T21:26:24.580094+00:00",
+      "lastChecked": "2026-11-24T06:04:24.616692+00:00",
       "syncStatus": "fresh"
     },
     {
@@ -203,7 +203,7 @@
       "extraSource": "https://ieeespace.org/call-for-papers/",
       "note": "跨领域会议，通信为征稿方向之一。7 月 5 日为会前 Workshop，7 月 6–7 日为主会。具体截止时刻与时区未注明。",
       "syncNote": "本次已读取官方来源并解析论文截止日期。",
-      "lastChecked": "2026-11-23T21:26:24.580094+00:00",
+      "lastChecked": "2026-11-24T06:04:24.616692+00:00",
       "syncStatus": "fresh"
     },
     {
@@ -229,17 +229,17 @@
       "url": "https://icc2027.ieee-icc.org/",
       "source": "https://www.comsoc.org/conferences-events/ieee-international-conference-communications-2027",
       "note": "IEEE ComSoc 目录仍列 2026-10-02；外部索引报告延期到 2026-10-30，但本次未能直接读取会议官网确认。暂不纳入已确认的待截稿统计，请核对官网最新 CFP。",
-      "syncNote": "本次无法连接官方来源；保留旧数据。",
+      "syncNote": "官网格式变化、信息冲突或缺少可确认的截稿日期；保留旧数据。",
       "syncStatus": "stale"
     }
   ],
-  "attemptedAt": "2026-11-23T21:26:24.580094+00:00",
+  "attemptedAt": "2026-11-24T06:04:24.616692+00:00",
   "freshCount": 2,
   "totalCount": 9,
   "status": "partial",
   "seedDate": "2026-10-27",
   "schemaVersion": 1,
   "mode": "github-actions",
-  "generatedAt": "2026-11-23T21:26:27.051747+00:00",
+  "generatedAt": "2026-11-24T06:04:27.012094+00:00",
   "scheduleHours": 1
 }
